@@ -1,0 +1,507 @@
+/*CSS Reset*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126 License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*CSS Reset end*/
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+/*COLORS*/
+$white: #fff;
+$light-gray: #c0c0c0;
+$gray: #515151;
+$black: #000;
+$dark-blue: #080859;
+$blue: #167cf7;
+$cyan: #00ecec;
+$green: #07eb66;
+$yellow: #f0df0d;
+$orange: #fa900a;
+$pale-orange: #ffcd8b;
+$red: #de0f0a;
+$pink: #f81899;
+$pale-pink: #ffa1f8;
+$purple: #9f0bf9;
+
+/*GRADIENTS*/
+$river: linear-gradient(120deg, $dark-blue, $green);
+$candy: linear-gradient(145deg, $pink, $pale-pink);
+$juice: linear-gradient(145deg, $orange, $pale-orange);
+
+code {
+    font-family: monospace !important;
+    background-color: transparentize($color: $black, $amount: .85);
+    border-radius: 5px;
+    padding: 1px 3px;
+}
+
+.uhi {
+    font-family: 'Nunito', sans-serif;
+
+    &.btn {
+        position: relative;
+    }
+
+
+
+    &.gradient {
+
+        &-river,
+        &-river:before {
+            background: $river;
+            color: $white;
+        }
+
+        &-candy,
+        &-candy:before {
+            background: $candy;
+            color: $white;
+        }
+
+        &-juice,
+        &-juice:before {
+            background: $juice;
+            color: $white;
+        }
+    }
+
+    body &,
+    html & {
+        margin: 0;
+    }
+
+    &.slice {
+        min-height: 200px;
+
+        width: 100%;
+
+        &.cut {
+            &.bottom {
+
+                &right,
+                &left {
+                    padding-bottom: 5%;
+                }
+
+                &right {
+                    clip-path: polygon(100% 0%, 100% 75%, 0% 100%, 0% 0%);
+
+                    &.topright {
+                        clip-path: polygon(100% 25%, 100% 75%, 0% 100%, 0% 0%);
+                    }
+
+                    &.topleft {
+                        clip-path: polygon(100% 0%, 100% 75%, 0% 100%, 0% 25%);
+                    }
+                }
+
+                &left {
+                    clip-path: polygon(100% 0%, 100% 100%, 0% 75%, 0% 0%);
+
+                    &.topright {
+                        clip-path: polygon(100% 25%, 100% 100%, 0% 75%, 0% 0%);
+                    }
+
+                    &.topleft {
+                        clip-path: polygon(100% 0%, 100% 100%, 0% 75%, 0% 25%);
+                    }
+
+                }
+            }
+
+            &.top {
+
+                &right,
+                &left {
+                    padding-top: 10%;
+                }
+
+                &right {
+                    clip-path: polygon(100% 25%, 100% 100%, 0% 100%, 0% 0%);
+                }
+
+                &left {
+                    clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 0% 25%);
+                }
+            }
+        }
+
+        & div.uhi.main {
+            top: 20%;
+            left: 10%;
+            position: relative;
+            padding: 2%;
+            width: fit-content;
+            border-radius: 45px;
+            max-width: 40vw;
+
+            & p.uhi {
+
+                text-align: justify;
+                margin-left: .4vw;
+            }
+
+        }
+
+        &>h1:first-of-type.title {
+            text-align: center;
+        }
+    }
+
+    &.title {
+        font-weight: bold;
+        text-align: left;
+
+        @at-root h1#{&} {
+            font-size: 95px;
+        }
+
+        @at-root h2#{&} {
+            font-size: 80px;
+        }
+
+        @at-root h3#{&} {
+            font-size: 70px;
+        }
+
+        @at-root h4#{&} {
+            font-size: 50px;
+        }
+
+        @at-root h5#{&} {
+            font-size: 40px;
+        }
+
+        @at-root h6#{&} {
+            font-size: 32px;
+        }
+    }
+
+    &.first {
+        padding-top: 20vh;
+        padding-bottom: 25% !important;
+    }
+
+    &.shadow {
+        box-shadow: 0px 0px 50px -20px $black;
+
+        &slice {
+            filter: drop-shadow(-1px 6px 30px rgba(50, 50, 0, 0.5));
+        }
+
+    }
+
+    &.clear {
+        background-color: transparent;
+    }
+
+    @at-root p#{&} {
+        font-size: 16px;
+    }
+
+    &.card {
+        width: fit-content;
+        border-radius: 45px;
+        position: relative;
+        text-align: justify;
+        box-shadow: 0px 0px 50px -20px $black;
+        margin: 2%;
+        border: none;
+
+        .title {
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        &holder {
+            padding: 5%;
+            display: inline-grid;
+            justify-items: center;
+            grid-template-rows: 100%;
+
+            &.one {
+                grid-template-columns: 1fr;
+
+                .card {
+                    padding: 2%;
+                }
+            }
+
+            &.two {
+                grid-template-columns: repeat(2, 1fr);
+
+                .card {
+                    padding: 3%;
+                }
+            }
+
+            &.three {
+                grid-template-columns: repeat(3, 1fr);
+
+                .card {
+                    padding: 6%;
+                    margin: 3%;
+                }
+            }
+
+            &.four {
+                grid-template-columns: repeat(4, 1fr);
+                padding-left: 3%;
+                padding-right: 3%;
+
+                .card {
+                    padding: 6%;
+                    margin: 3%;
+                }
+            }
+
+            &.five {
+                grid-template-columns: repeat(5, 1fr);
+                padding-left: 2%;
+                padding-right: 2%;
+
+                .card {
+                    padding: 6% 8% 8% 8%;
+                    margin: 4%;
+                }
+            }
+        }
+    }
+
+    &.white {
+        background-color: $white;
+    }
+
+    &.black {
+        background-color: $black;
+    }
+
+    &.lightgray {
+        background-color: $light-gray;
+    }
+
+    &.orange {
+        background-color: $orange;
+    }
+
+    &.button {
+        border: 4px transparent;
+        border-radius: 50px;
+        font-size: 30px;
+        font-weight: bold;
+        position: relative;
+        margin: 0;
+        transition: cubic-bezier(1, 1, .85, .49) filter 2s;
+
+        &.big {
+            font-size: 30px;
+            padding: 3% 5%;
+
+            &:before {
+                content: '';
+                border-radius: inherit;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: -1;
+                transition: ease-in-out margin .2s;
+            }
+
+            &:hover {
+                cursor: pointer;
+                filter: brightness(1.4);
+
+                &:before {
+                    content: '';
+                    margin: -4px;
+                }
+            }
+        }
+
+        &.small {
+            font-size: 20px;
+            padding: 2% 4%;
+
+            &:before {
+                content: '';
+                border-radius: inherit;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: -1;
+                transition: ease-in-out margin .2s;
+            }
+
+            &:hover {
+                cursor: pointer;
+                filter: brightness(1.4);
+
+                &:before {
+                    content: '';
+                    margin: -3px;
+                }
+            }
+        }
+    }
+
+    &.nav {
+        height: 50px;
+        width: 100%;
+        z-index: 10000;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: block;
+        padding: 1% 2%;
+        backdrop-filter: brightness(0.7) blur(20px);
+        /* See https://caniuse.com/#feat=css-backdrop-filter */
+
+        .left {
+            float: left;
+        }
+
+        .right {
+            float: right;
+        }
+    }
+}

@@ -5,3 +5,5 @@
 
 #local tests below this point
 *.html
+*.svg
+*.png

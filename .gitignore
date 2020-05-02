@@ -4,6 +4,5 @@
 *.scss.map
 
 #local tests below this point
-*.html
-*.svg
-*.png
+index.html
+!docs/index.html

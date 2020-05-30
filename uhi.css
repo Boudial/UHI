@@ -599,11 +599,22 @@ p.uhi {
   top: 0;
   left: 0;
   padding: 1% 2%;
-  -webkit-backdrop-filter: brightness(0.65) blur(20px);
-          backdrop-filter: brightness(0.65) blur(20px);
   overflow: hidden;
   /* See https://caniuse.com/#feat=css-backdrop-filter */
   color: #fff;
+}
+
+@supports ((-webkit-backdrop-filter: brightness(0.65) blur(20px)) or (backdrop-filter: brightness(0.65) blur(20px))) {
+  .uhi.nav {
+    -webkit-backdrop-filter: brightness(0.65) blur(20px);
+            backdrop-filter: brightness(0.65) blur(20px);
+  }
+}
+
+@supports not ((-webkit-backdrop-filter: brightness(0.65) blur(20px)) or (backdrop-filter: brightness(0.65) blur(20px))) {
+  .uhi.nav {
+    background-color: #515151;
+  }
 }
 
 .uhi.nav .left {

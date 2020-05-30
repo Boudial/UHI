@@ -634,7 +634,12 @@ p {
         top: 0;
         left: 0;
         padding: 1% 2%;
-        backdrop-filter: brightness(.65) blur(20px);
+        @supports (backdrop-filter: brightness(.65) blur(20px)){
+            backdrop-filter: brightness(.65) blur(20px);
+        }
+        @supports not (backdrop-filter: brightness(.65) blur(20px)) {
+            background-color: $gray;
+        }
         overflow: hidden;
         /* See https://caniuse.com/#feat=css-backdrop-filter */
         color: $white;

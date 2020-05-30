@@ -346,8 +346,8 @@ p.uhi {
 }
 
 .uhi.cardholder.one {
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
 }
 
 .uhi.cardholder.one .card {
@@ -520,12 +520,12 @@ p.uhi {
   transition: cubic-bezier(1, 1, 0.85, 0.49) filter 2s;
 }
 
-.uhi.button.big {
+.uhi.button.big:not(.secondary) {
   font-size: 30px;
   padding: 3% 5%;
 }
 
-.uhi.button.big:before {
+.uhi.button.big:not(.secondary):before {
   content: '';
   border-radius: inherit;
   position: absolute;
@@ -538,23 +538,23 @@ p.uhi {
   transition: ease-in-out margin .2s;
 }
 
-.uhi.button.big:hover {
+.uhi.button.big:not(.secondary):hover {
   cursor: pointer;
   -webkit-filter: brightness(1.2);
           filter: brightness(1.2);
 }
 
-.uhi.button.big:hover:before {
+.uhi.button.big:not(.secondary):hover:before {
   content: '';
   margin: -4px;
 }
 
-.uhi.button.small {
+.uhi.button.small:not(.secondary) {
   font-size: 20px;
   padding: 2% 4%;
 }
 
-.uhi.button.small:before {
+.uhi.button.small:not(.secondary):before {
   content: '';
   border-radius: inherit;
   position: absolute;
@@ -567,15 +567,28 @@ p.uhi {
   transition: ease-in-out margin .2s;
 }
 
-.uhi.button.small:hover {
+.uhi.button.small:not(.secondary):hover {
   cursor: pointer;
   -webkit-filter: brightness(1.2);
           filter: brightness(1.2);
 }
 
-.uhi.button.small:hover:before {
+.uhi.button.small:not(.secondary):hover:before {
   content: '';
   margin: -3px;
+}
+
+.uhi.button.secondary {
+  color: inherit;
+  background: transparent;
+  border: solid 1px #000;
+  font-size: smaller;
+  padding: 2% 4%;
+}
+
+.uhi.button.secondary:hover {
+  cursor: pointer;
+  background: rgba(81, 81, 81, 0.1);
 }
 
 .uhi.nav {
@@ -585,38 +598,87 @@ p.uhi {
   position: fixed;
   top: 0;
   left: 0;
-  display: block;
   padding: 1% 2%;
-  -webkit-backdrop-filter: brightness(0.7) blur(20px);
-          backdrop-filter: brightness(0.7) blur(20px);
+  -webkit-backdrop-filter: brightness(0.65) blur(20px);
+          backdrop-filter: brightness(0.65) blur(20px);
+  overflow: hidden;
   /* See https://caniuse.com/#feat=css-backdrop-filter */
+  color: #fff;
 }
 
 .uhi.nav .left {
   float: left;
-  left: 0;
+}
+
+.uhi.nav .left a,
+.uhi.nav .left img,
+.uhi.nav .left .title {
+  text-align: center;
+  display: inline-block;
 }
 
 .uhi.nav .right {
   float: right;
-  right: 0;
+  margin-right: 5%;
+}
+
+.uhi.nav .right a,
+.uhi.nav .right img,
+.uhi.nav .right .title {
+  padding: 15px 15px;
+  text-decoration: none;
+  font-size: 17px;
+  text-align: center;
+  display: inline-block;
 }
 
 accent.uhi {
   padding: 0px 5px;
   z-index: 10;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+}
+
+accent.uhi.weight {
+  font-weight: bold;
 }
 
 accent.uhi.smooth {
   border-radius: 4px;
 }
 
+accent.uhi.underlined {
+  background: transparent;
+  color: inherit;
+  border-bottom: solid 2px transparent;
+}
+
+accent.uhi.underlined::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  border-radius: inherit;
+  width: 100%;
+}
+
 accent.uhi.hover {
   background: transparent;
   color: inherit;
   position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -webkit-transition: color ease-in-out .4s, font-weight ease-in-out .4s;
   transition: color ease-in-out .4s, font-weight ease-in-out .4s;
+}
+
+accent.uhi.hover.weight {
+  font-weight: normal;
 }
 
 accent.uhi.hover:before {
@@ -647,11 +709,11 @@ accent.uhi.hover:hover:before {
   right: 0;
 }
 
-accent.uhi.underlined {
-  border: solid 3px transparent;
+accent.uhi.hover.underlined {
+  border: solid 2px transparent;
 }
 
-accent.uhi.underlined::after {
+accent.uhi.hover.underlined::after {
   content: '';
   position: absolute;
   right: 0;
@@ -659,5 +721,85 @@ accent.uhi.underlined::after {
   left: 0;
   height: 3px;
   border-radius: inherit;
+  width: 100%;
+}
+
+.uhi.link {
+  text-decoration: underline;
+}
+
+.uhi.link.silent {
+  text-decoration: none;
+}
+
+.uhi.link.silent:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 1024px) {
+  .uhi {
+    font-size: 15px;
+  }
+  .uhi.link {
+    text-decoration: underline !important;
+  }
+  .uhi.title {
+    font-weight: bold;
+    text-align: left;
+  }
+  h1.uhi.title {
+    font-size: 40px;
+  }
+  h2.uhi.title {
+    font-size: 35px;
+  }
+  h3.uhi.title {
+    font-size: 25px;
+  }
+  h4.uhi.title {
+    font-size: 20px;
+  }
+  h5.uhi.title {
+    font-size: 18px;
+  }
+  h6.uhi.title {
+    font-size: 15px;
+  }
+  .uhi.cardholder {
+    -ms-grid-columns: none !important;
+        grid-template-columns: none !important;
+    -ms-grid-rows: auto;
+        grid-template-rows: auto;
+  }
+  .uhi.cardholder .card {
+    padding: 9% 7% !important;
+    margin: 3%;
+    width: 70% !important;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .uhi.slice > h1:first-of-type.title {
+    margin-top: 8vh;
+  }
+  .uhi.slice div.uhi.main {
+    top: 10%;
+    left: 10%;
+    position: relative;
+    padding: 7%;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    border-radius: 45px;
+    max-width: 65vw;
+  }
+  .uhi.slice div.uhi.main p.uhi {
+    text-align: justify;
+    margin-left: .4vw;
+  }
+  .uhi.first {
+    padding-top: 10vh;
+    padding-bottom: 40% !important;
+  }
 }
 /*# sourceMappingURL=uhi.css.map */

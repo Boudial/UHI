@@ -4,5 +4,5 @@
 *.scss.map
 
 #local tests below this point
-index.html
-!docs/index.html
+/index.html
+

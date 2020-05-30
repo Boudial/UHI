@@ -223,7 +223,6 @@ p {
 
     &.slice {
         min-height: 200px;
-
         width: 100%;
 
         &.cut {
@@ -376,7 +375,7 @@ p {
             grid-template-rows: 100%;
 
             &.one {
-                grid-template-columns: 1fr;
+                grid-template-rows: 1fr;
 
                 .card {
                     padding: 2%;
@@ -559,7 +558,7 @@ p {
         margin: 0;
         transition: cubic-bezier(1, 1, .85, .49) filter 2s;
 
-        &.big {
+        &.big:not(.secondary) {
             font-size: 30px;
             padding: 3% 5%;
 
@@ -586,7 +585,7 @@ p {
             }
         }
 
-        &.small {
+        &.small:not(.secondary) {
             font-size: 20px;
             padding: 2% 4%;
 
@@ -612,6 +611,19 @@ p {
                 }
             }
         }
+
+        &.secondary {
+            color: inherit;
+            background: transparent;
+            border: solid 1px $black;
+            font-size: smaller;
+            padding: 2% 4%;
+
+            &:hover {
+                cursor: pointer;
+                background: rgba($color: $gray, $alpha: .1);
+            }
+        }
     }
 
     &.nav {
@@ -621,36 +633,87 @@ p {
         position: fixed;
         top: 0;
         left: 0;
-        display: block;
         padding: 1% 2%;
-        backdrop-filter: brightness(0.7) blur(20px);
+        backdrop-filter: brightness(.65) blur(20px);
+        overflow: hidden;
         /* See https://caniuse.com/#feat=css-backdrop-filter */
+        color: $white;
 
         .left {
             float: left;
-            left: 0;
+
+            a,
+            img,
+            .title {
+                text-align: center;
+                display: inline-block;
+            }
         }
 
         .right {
             float: right;
-            right: 0;
+            margin-right: 5%;
+
+            a,
+            img,
+            .title {
+                padding: 15px 15px;
+                text-decoration: none;
+                font-size: 17px;
+                text-align: center;
+                display: inline-block;
+            }
         }
     }
 
     @at-root accent#{&} {
         padding: 0px 5px;
         z-index: 10;
+        display: inline-flex;
+        position: relative;
+
+        &.weight {
+            font-weight: bold;
+        }
 
         &.smooth {
             border-radius: 4px;
+        }
+
+        &.underlined {
+            &::after {
+                content: '';
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                height: 3px;
+                border-radius: inherit;
+                width: 100%;
+            }
+
+
+            background: transparent;
+            color: inherit;
+            border-bottom: solid 2px transparent;
+
+
+
         }
 
         &.hover {
             background: transparent;
             color: inherit;
             position: relative;
+            display: inline-flex;
+
+            &.weight {
+                font-weight: normal;
+            }
+
             transition: color ease-in-out .4s,
-                font-weight ease-in-out .4s;
+            font-weight ease-in-out .4s;
+
 
             &:before {
                 content: '';
@@ -679,20 +742,111 @@ p {
 
                 }
             }
+
+            &.underlined {
+                border: solid 2px transparent;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    height: 3px;
+                    border-radius: inherit;
+                    width: 100%;
+                }
+            }
         }
 
-        &.underlined {
-            border: solid 3px transparent;
 
-            &::after {
-                content: '';
-                position: absolute;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                height: 3px;
-                border-radius: inherit;
+
+    }
+
+    &.link {
+        text-decoration: underline;
+
+        &.silent {
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
             }
         }
     }
 }
+
+@media screen and (max-width: 1024px) {
+    .uhi {
+        font-size: 15px;
+
+        &.link {
+            text-decoration: underline !important;
+        }
+
+        &.title {
+            font-weight: bold;
+            text-align: left;
+
+            @at-root h1#{&} {
+                font-size: 40px;
+            }
+
+            @at-root h2#{&} {
+                font-size: 35px;
+            }
+
+            @at-root h3#{&} {
+                font-size: 25px;
+            }
+
+            @at-root h4#{&} {
+                font-size: 20px;
+            }
+
+            @at-root h5#{&} {
+                font-size: 18px;
+            }
+
+            @at-root h6#{&} {
+                font-size: 15px;
+            }
+        }
+        
+            &.cardholder {
+                grid-template-columns: none !important;
+                grid-template-rows: auto;
+                .card {
+                    padding: 9% 7% !important;
+                    margin: 3%;
+                    width: 70% !important;
+                    height: fit-content;
+                }
+            }
+            &.slice {
+                &>h1:first-of-type.title {
+                    margin-top: 8vh;
+                }
+                & div.uhi.main {
+                    top: 10%;
+                    left: 10%;
+                    position: relative;
+                    padding: 7%;
+                    width: fit-content;
+                    border-radius: 45px;
+                    max-width: 65vw;
+
+                    & p.uhi {
+
+                        text-align: justify;
+                        margin-left: .4vw;
+                    }
+
+                }
+            }
+            &.first {
+                padding-top: 10vh;
+                padding-bottom: 40% !important;
+            }
+        }
+    }

@@ -164,7 +164,7 @@ $juice: linear-gradient(145deg, $orange, $pale-orange);
 $summer: linear-gradient(100deg, $pink, $orange, $cyan);
 
 code {
-    font-family: monospace !important;
+    font-family: monospace;
     background-color: transparentize($color: $black, $amount: .85);
     border-radius: 5px;
     padding: 1px 3px;
@@ -330,7 +330,7 @@ p {
 
     &.first {
         padding-top: 20vh;
-        padding-bottom: 25% !important;
+        padding-bottom: 25%;
     }
 
     &.shadow {
@@ -787,7 +787,7 @@ p {
         font-size: 15px;
 
         &.link {
-            text-decoration: underline !important;
+            text-decoration: underline;
         }
 
         &.title {
@@ -820,12 +820,12 @@ p {
         }
         
             &.cardholder {
-                grid-template-columns: none !important;
+                grid-template-columns: none;
                 grid-template-rows: auto;
                 .card {
-                    padding: 9% 7% !important;
+                    padding: 9% 7%;
                     margin: 3%;
-                    width: 70% !important;
+                    width: 70%;
                     height: fit-content;
                 }
             }
@@ -852,7 +852,7 @@ p {
             }
             &.first {
                 padding-top: 10vh;
-                padding-bottom: 40% !important;
+                padding-bottom: 40%;
             }
         }
     }

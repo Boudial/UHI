@@ -139,7 +139,7 @@ table {
 /*COLORS*/
 /*GRADIENTS*/
 code {
-  font-family: monospace !important;
+  font-family: monospace;
   background-color: rgba(0, 0, 0, 0.15);
   border-radius: 5px;
   padding: 1px 3px;
@@ -292,7 +292,7 @@ h6.uhi.title {
 
 .uhi.first {
   padding-top: 20vh;
-  padding-bottom: 25% !important;
+  padding-bottom: 25%;
 }
 
 .uhi.shadow {
@@ -752,7 +752,7 @@ accent.uhi.hover.underlined::after {
     font-size: 15px;
   }
   .uhi.link {
-    text-decoration: underline !important;
+    text-decoration: underline;
   }
   .uhi.title {
     font-weight: bold;
@@ -777,15 +777,15 @@ accent.uhi.hover.underlined::after {
     font-size: 15px;
   }
   .uhi.cardholder {
-    -ms-grid-columns: none !important;
-        grid-template-columns: none !important;
+    -ms-grid-columns: none;
+        grid-template-columns: none;
     -ms-grid-rows: auto;
         grid-template-rows: auto;
   }
   .uhi.cardholder .card {
-    padding: 9% 7% !important;
+    padding: 9% 7%;
     margin: 3%;
-    width: 70% !important;
+    width: 70%;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
@@ -810,7 +810,7 @@ accent.uhi.hover.underlined::after {
   }
   .uhi.first {
     padding-top: 10vh;
-    padding-bottom: 40% !important;
+    padding-bottom: 40%;
   }
 }
 /*# sourceMappingURL=uhi.css.map */
